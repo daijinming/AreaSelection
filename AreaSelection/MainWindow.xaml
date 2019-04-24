@@ -1,0 +1,62 @@
+﻿<Window x:Class="AreaSelection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="图形位置"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Height="700" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+
+            <Button Content="加载图片" x:Name="btnLoadImage" Click="btnLoadImage_Click" />
+
+            <Grid Background="Gray" VerticalAlignment="Top"  Height="68" Width="100" Opacity="0.5"  HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="row1" Height="{Binding gridheight}"/>
+                    <RowDefinition x:Name="row2" Height="{Binding gridheight}"/>
+                    <RowDefinition x:Name="row3" Height="{Binding gridheight}"/>
+                    <RowDefinition x:Name="row4" Height="{Binding gridheight}"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="col1" Width="{Binding gridwidth}" />
+                    <ColumnDefinition x:Name="col2" Width="{Binding gridwidth}" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="___No_Name_" Grid.Row="0" Padding="0" FontWeight="Bold" Content="Width" Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="0"/>
+                <Label x:Name="widthDisplay" Grid.Row="0" Padding="0" FontWeight="Bold" Content="" Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="1"/>
+                <Label Grid.Row="1" Padding="0" FontWeight="Bold" Content="Height" Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="0"/>
+                <Label x:Name="heightDisplay" Grid.Row="1" Padding="0" FontWeight="Bold" Content="" Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="1"/>
+                <Label Grid.Row="2" Padding="0" FontWeight="Bold" Content="X" Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="0"/>
+                <Label x:Name="xDisplay" Grid.Row="2" Padding="0" FontWeight="Bold" Content="" Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="1"/>
+                <Label Grid.Row="3" Padding="0" FontWeight="Bold" Content="Y" Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="0"/>
+                <Label x:Name="yDisplay" Grid.Row="3" Padding="0" FontWeight="Bold" Content=""  Width="{Binding gridwidth}" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" Grid.Column="1"/>
+
+            </Grid>
+            <TextBlock x:Name="txtCorners"></TextBlock>
+        </StackPanel>
+
+        <Canvas Name="canvasbg" Background="Transparent" Grid.Column="1"
+        MouseDown="canvas1_MouseDown" MouseMove="canvas1_MouseMove" MouseUp="canvas1_MouseUp">
+            
+            <Canvas x:Name="canvas1" Height="700" Width="900" ScrollViewer.CanContentScroll="True" >
+
+
+                <Rectangle x:Name="rectangle1" Stroke="Black" Fill="Green" Opacity="0.55"
+        		Canvas.Left="175" Canvas.Top="10" Width="100" Height="80"/>
+
+
+                <Border x:Name="border1" BorderBrush="BlanchedAlmond" BorderThickness="1" Height="700" Width="900"/>
+            </Canvas>
+
+
+
+        </Canvas>
+
+
+    </Grid>
+</Window>
